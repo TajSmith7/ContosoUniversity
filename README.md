@@ -18,9 +18,22 @@ This test plan focuses on the following pages and functionalities:
 | Component | Description |
 |------------|-------------|
 | **Framework** | ASP.NET Core 8 / EF Core |
-| **Database** | Local SQL Server (LocalDB)|
+| **Database** | Local SQL Server (LocalDB) |
 | **Browser** | Microsoft Edge / Chrome |
 | **Test Data** | Seeded via `DbInitializer` |
+
+---
+
+## 🧩 Database Schema (Overview)
+
+| **Table** | **Key Fields** | **Description** |
+|------------|----------------|-----------------|
+| **Student** | `ID` *(PK)*, `LastName`, `FirstName`, `EnrollmentDate` | Stores student records |
+| **Enrollment** | `EnrollmentID` *(PK)*, `CourseID`, `StudentID`, `Grade` | Links students to courses (many-to-many relationship) |
+| **Course** | `CourseID` *(PK)*, `Title`, `Credits`, `DepartmentID` | Represents courses offered by departments |
+| **Department** | `DepartmentID` *(PK)*, `Name`, `Budget`, `StartDate`, `InstructorID` *(FK)* | Represents academic departments and their administrators |
+| **Instructor** | `ID` *(PK)*, `LastName`, `FirstName`, `HireDate` | Represents faculty members who teach courses |
+| **OfficeAssignment** | `InstructorID` *(PK, FK)*, `Location` | One-to-one table assigning offices to Instructors |
 
 ---
 
@@ -42,4 +55,3 @@ This test plan focuses on the following pages and functionalities:
 ## ✅ Pass/Fail Criteria
 - All pages load and display expected data without errors.  
 - Sorting, filtering, and paging behave consistently and retain state between operations.  
-
