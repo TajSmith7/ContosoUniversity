@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{EF6D3AF1-092B-44DC-9FCF-39271C83182F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity.Tests", "ContosoUniversity.Tests\ContosoUniversity.Tests.csproj", "{21B41FEB-2C9B-49F4-BDA1-B22C6EC7853C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EF6D3AF1-092B-44DC-9FCF-39271C83182F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF6D3AF1-092B-44DC-9FCF-39271C83182F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF6D3AF1-092B-44DC-9FCF-39271C83182F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B41FEB-2C9B-49F4-BDA1-B22C6EC7853C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B41FEB-2C9B-49F4-BDA1-B22C6EC7853C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B41FEB-2C9B-49F4-BDA1-B22C6EC7853C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B41FEB-2C9B-49F4-BDA1-B22C6EC7853C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

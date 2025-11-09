@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
@@ -15,10 +16,12 @@ namespace ContosoUniversity.Pages.Students
     {
         private readonly SchoolContext _context;
         private readonly IConfiguration Configuration;
-        public IndexModel(SchoolContext context, IConfiguration configuration)
+        private readonly ILogger<IndexModel> _logger;
+        public IndexModel(SchoolContext context, IConfiguration configuration, ILogger<IndexModel> logger)
         {
             _context = context;
             Configuration = configuration;
+            _logger = logger;
         }
 
         public string NameSort { get; set; }
@@ -30,6 +33,7 @@ namespace ContosoUniversity.Pages.Students
 
         public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
+            _logger.LogInformation("Index page OnGetAsync called at {Time}", DateTime.UtcNow);
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
@@ -71,6 +75,9 @@ namespace ContosoUniversity.Pages.Students
             var pageSize = Configuration.GetValue("PageSize", 4);
             Students = await PaginatedList<Student>.CreateAsync(
                 studentsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+
+            _logger.LogInformation("Loaded {Count} students from database", Students.Count);
+
         }
     }
 }

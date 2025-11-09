@@ -64,7 +64,7 @@ namespace ContosoUniversity.Data
                         Title = x.Title,
                         Credits = x.Credits,
                         Department = departmentDict.ContainsKey(x.DepartmentRef) ? departmentDict[x.DepartmentRef] : null,
-                        Instructors = new List<Instructor>()
+                        Instructors = instructorList
                     };
                 }
             );
