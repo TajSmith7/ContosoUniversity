@@ -48,6 +48,12 @@ app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
 
+app.MapGet("/healthz", (IConfiguration config) =>
+{
+    var message = config["HealthCheckMessage"] ?? "Healthy";
+    return Results.Ok(new { status = "OK", message });
+});
+
 app.Run();
 
 public partial class Program { }

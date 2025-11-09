@@ -48,7 +48,7 @@ namespace ContosoUniversity.Tests.Services
             var student = await service.GetStudentByIdAsync(1);
 
             Assert.NotNull(student);
-            Assert.Equal("John", student.FirstName);
+            Assert.Equal("Thomas", student.FirstName);
         }
     }
 }
